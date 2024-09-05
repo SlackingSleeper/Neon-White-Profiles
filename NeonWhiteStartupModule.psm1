@@ -1,9 +1,9 @@
 ﻿function Add-Cheat{
     param($cheatMod)
-    If(-Not (Test-Path "$($cheatMod)")){
+    If(-Not (Test-Path "$cheatMod.dll")){
 	    
-        If((Test-Path ".\Paused Mods\$cheatMod")){
-            Copy-Item ".\Paused Mods\$cheatMod" -Destination "."
+        If((Test-Path ".\Paused Mods\$cheatMod.dll")){
+            Copy-Item ".\Paused Mods\$cheatMod.dll" -Destination "."
             Copy-Item ".\Paused Mods\AntiCheat.dll" -Destination "."
         }
         Else{
@@ -14,18 +14,11 @@
 }
 function Remove-Cheat{
     param($cheatMod)
-    If(Test-Path "$($cheatMod)"){
-	    Move-Item -Path "$($cheatMod)" -Destination ".\Paused Mods" -Force
+    If(Test-Path "$cheatMod.dll"){
+	    Move-Item -Path "$cheatMod.dll" -Destination ".\Paused Mods" -Force
         If(Test-Path ".\AntiCheat.dll"){
 	        Move-Item -Path ".\AntiCheat.dll" -Destination ".\Paused Mods" -Force
         }
-    }
-}
-
-function Initialize-PausedMods{
-    If(-Not (Test-Path ".\Paused Mods" -PathType "Container"))
-    {
-	    New-Item -Path ".\Paused Mods" -ItemType "Directory"
     }
 }
 

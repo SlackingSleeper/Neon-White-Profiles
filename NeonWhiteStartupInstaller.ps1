@@ -42,7 +42,7 @@ foreach($file in $ScriptsToBeInstalled){
 }
 Copy-Item NeonWhiteStartupModule.psm1 -Destination $NWDir
 #Builds the configuration file
-$configHashtable = @{Paths = @{};Cheats=@("Xenon.dll","BoofOfMemes.dll","MikeyMode.dll")}
+$configHashtable = @{Paths = @{};Cheats=@("Xenon","BoofOfMemes","MikeyMode", "RMMBY", "RMMBY.NeonLevelLoader", "UnityExplorer.ML.Mono")}
 If($obsPath -ne $null){
     $configHashtable["Paths"]["obsFile"] = $obsPath
     $configHashtable["Paths"]["obsPath"] = $obsPath | Split-Path -Parent
